@@ -55,12 +55,15 @@ class UserServiceImplTest {
     @Test
     @DisplayName("Quando Localizar por ID e retornar uma instância de usuário")
     void whenFindByIdThenReturnAnUserInstance() {
+        //Cenario - 1° Parte
         //when = quando & thenReturn = então retorne
         //Mockito.when(userRepository.findById(Mockito.anyInt())).thenReturn(optionalUser);
         when(userRepository.findById(anyInt())).thenReturn(optionalUser);
 
+        //Ação - 2° Parte
         User response = service.findById(ID);
 
+        //Verificação - 3° Parte
         assertNotNull(response);
         assertEquals(User.class, response.getClass());
         assertEquals(ID, response.getId());
